@@ -27,7 +27,7 @@ port 80
 
 # whether motion HTTP control interface listens on
 # localhost or on all interfaces
-motion_control_localhost true
+motion_control_localhost false
 
 # the TCP port that motion HTTP control interface listens on
 motion_control_port 7999

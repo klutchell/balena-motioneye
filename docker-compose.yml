@@ -1,28 +1,27 @@
-version: "2"
+version: "2.1"
+
 services:
   motioneye:
-    build: ./motioneye
-    # required for avahi to work properly inside the container
-    network_mode: host
-    # only effective if network_mode above is not set
-    # ports:
-    #   # Camera streaming endpoing, add others as needed
-    #   - "8081-8090:8081-8090"
-    #   # Web interface
-    #   - "80:80"
+    build: motioneye
     privileged: true
+    # network_mode: host
+    ports:
+      # motioneye web interface
+      - "80:80"
+      # motion control http interface
+      - "7999:7999"
+      # camera streaming endpoints, add others as needed
+      - "8081-8090:8081-8090"
     volumes:
       - etc:/etc/motioneye
       - media:/var/lib/motioneye
       - run:/var/run/motion
     labels:
-      io.resin.features.kernel-modules: '1'
-      io.resin.features.firmware: '1'
+      io.balena.features.kernel-modules: '1'
+      io.balena.features.firmware: '1'
 
 volumes:
-  # Setting
   etc:
-  # Saved images and video
   media:
-  # PIDs
   run:
+      
