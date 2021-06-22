@@ -58,4 +58,4 @@ RUN chmod +x /init.sh
 
 CMD [ "/init.sh" ]
 
-ENV BALENA_HOSTNAME motioneye
+ENV DEVICE_HOSTNAME motioneye
